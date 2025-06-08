@@ -1,0 +1,523 @@
+:root {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: white;
+    --bg-tertiary: #fafafa;
+    --text-primary: #2c2c2c;
+    --text-secondary: #6b7280;
+    --border-primary: #e0e0e0;
+    --border-secondary: #d0d0d0;
+    --border-tertiary: #e5e5e5;
+    --shadow-light: rgba(0,0,0,0.08);
+    --shadow-medium: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --border-primary: #404040;
+    --border-secondary: #525252;
+    --border-tertiary: #373737;
+    --shadow-light: rgba(0,0,0,0.3);
+    --shadow-medium: rgba(0,0,0,0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-primary);
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.theme-toggle {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: var(--border-primary);
+    transform: scale(1.05);
+}
+
+h1 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.add-button-section {
+    background: var(--bg-tertiary);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px dashed var(--border-secondary);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-section {
+    margin-bottom: 30px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.category-tab {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-tab:hover {
+    background: var(--border-primary);
+}
+
+.category-tab.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.category-tab.drag-over {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.category-delete-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.category-delete-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.add-button-section {
+    background: var(--bg-tertiary);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px dashed var(--border-secondary);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.add-btn, .add-category-btn, .export-btn, .import-btn {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 120px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.add-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.add-category-btn {
+    background: #10b981;
+    color: white;
+}
+
+.add-category-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.export-btn {
+    background: #8b5cf6;
+    color: white;
+}
+
+.export-btn:hover {
+    background: #7c3aed;
+    transform: translateY(-1px);
+}
+
+.import-btn {
+    background: #f59e0b;
+    color: white;
+}
+
+.import-btn:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.custom-button {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-tertiary);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    border-color: var(--border-secondary);
+}
+
+.custom-button.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+    z-index: 1000;
+}
+
+.custom-button.drag-over {
+    border-color: #3b82f6;
+    background: var(--bg-tertiary);
+}
+
+.drag-handle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: grab;
+    padding: 5px;
+    border-radius: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.custom-button:hover .drag-handle {
+    opacity: 1;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.custom-button:hover .favorite-btn {
+    opacity: 1;
+}
+
+.favorite-btn:hover {
+    background: var(--border-primary);
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    opacity: 1;
+    color: #fbbf24;
+}
+
+.button-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border: 1px solid var(--border-primary);
+    transition: all 0.2s ease;
+}
+
+.button-image:hover {
+    transform: scale(1.02);
+}
+
+.default-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 28px;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.default-icon:hover {
+    background: var(--border-primary);
+    border-color: var(--border-secondary);
+    transform: scale(1.02);
+}
+
+.button-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    word-break: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.button-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.edit-btn {
+    background: #6b7280;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #4b5563;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.image-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.image-btn:hover {
+    background: #2563eb;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s ease;
+}
+
+.modal-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-secondary);
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 20px 0;
+    outline: none;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.modal-input:focus {
+    border-color: #3b82f6;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.save-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #2563eb;
+}
+
+.cancel-btn {
+    background: #6b7280;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #4b5563;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 50px 0;
+    transition: color 0.3s ease;
+}
+
+.empty-state-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}

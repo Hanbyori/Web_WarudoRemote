@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warudo Remote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>리모컨</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+        
+        <div class="category-section">
+            <div class="category-tabs" id="categoryTabs">
+            </div>
+        </div>
+
+        <div class="add-button-section">
+            <button class="add-btn" onclick="addNewButton()">
+                + 버튼 추가
+            </button>
+            <button class="add-category-btn" onclick="addNewCategory()">
+                + 카테고리 추가
+            </button>
+            <button class="export-btn" onclick="exportData()">
+                # 내보내기
+            </button>
+            <button class="import-btn" onclick="importData()">
+                # 가져오기
+            </button>
+        </div>
+
+        <div id="buttonsContainer" class="buttons-grid">
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <div class="empty-state-icon">❌</div>
+            <p>버튼이 없습니다.</p>
+        </div>
+    </div>
+
+    <div id="editModal" class="edit-modal">
+        <div class="modal-content">
+            <h3>버튼 이름 변경</h3>
+            <input type="text" id="editInput" class="modal-input" placeholder="새로운 버튼 이름">
+            <div class="modal-buttons">
+                <button class="modal-btn save-btn" onclick="saveButtonName()">저장</button>
+                <button class="modal-btn cancel-btn" onclick="closeEditModal()">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="categoryModal" class="edit-modal">
+        <div class="modal-content">
+            <h3>카테고리 이름 입력</h3>
+            <input type="text" id="categoryInput" class="modal-input" placeholder="카테고리 이름">
+            <div class="modal-buttons">
+                <button class="modal-btn save-btn" onclick="saveCategoryName()">저장</button>
+                <button class="modal-btn cancel-btn" onclick="closeCategoryModal()">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
